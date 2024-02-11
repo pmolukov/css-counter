@@ -1,0 +1,30 @@
+body {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  background-color: #333;
+  color: #fff;
+}
+
+.counter {
+  counter-reset: ms var(--number);
+  animation: count 11s steps(11) infinite;
+  /* animation-iteration-count: 1; */
+}
+
+.counter::after {
+  content: counter(ms);
+  font-size: 7vw;
+}
+
+@property --number {
+  syntax: '<integer>';
+  inherits: false;
+  initial-value: 10;
+}
+
+@keyframes count {
+  to {
+    --number: -1;
+  }
+}
